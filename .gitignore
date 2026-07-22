@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX/
+
+# VS Code (project-specific settings not needed in public repo)
+.vscode/
+
+# Academic submission artefacts — NEVER commit to public repo
+*k21194535*
+*K21194535*
+*21194535*
+Part*.pdf
+Part*.MOV
+*.MOV
+video*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv
+env/
+venv/
+
+# Editor
+.idea/
+*.swp
+*.swo
+
+# Node (if ever added)
+node_modules/
+package-lock.json
+
+# OS
+Thumbs.db

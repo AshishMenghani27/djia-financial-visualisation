@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DJIA Financial Visualisation | D3.js Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="https://d3js.org/d3.v7.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="col-md-2 col-sm-12 col-xs-12 d-flex flex-column flex-shrink-0 p-3"
+        >
+          <nav id="navbar">
+            <h3 class="pt-4 pb-4 px-1">D3 project</h3>
+            <h3 class="pt-4 pb-4 px-1">Ashish Menghani</h3>
+            
+            <!--content stacking for smaller screens-->
+            <ul class="nav nav-pills flex-column mb-auto">
+              <a
+                class="nav-link active"
+                href="#Introduction"
+                id="nav-introduction"
+                >Introduction</a
+              >
+              <a class="nav-link" href="#Key_Information" id="nav-key-info"
+                >Key information</a
+              >
+              <a class="nav-link" href="#About_the_data" id="nav-about-data"
+                >About the data</a
+              >
+              <a
+                class="nav-link" href="html/CandleStick.html" id="nav-candlestick"
+                >CandleStick Chart</a
+              >
+              <a class="nav-link" href="html/LineChart.html" id="nav-linechart"
+                >Stock Area Line Chart</a
+              >
+              <a
+                class="nav-link" href="html/ComparisionChart.html" id="nav-comparison"
+                >Stock Comparison Chart</a
+              >
+              <a 
+                class="nav-link" href="html/LineChart2.html" id="nav-chart"
+                >Macroeconomic Area Line Chart</a
+              >
+            </ul>
+          </nav>
+        </div>
+        <div class="col-md-10 col-sm-12 col-xs-12">
+          <main>
+            <section id="Introduction">
+              <h2 class="text-light bg-primary my-3">Introduction</h2>
+              <p style="text-align: justify">
+                This project leverages D3.js for data visualization, focusing on Dow Jones Industrial Average 30 stocks financial data sourced from IEX Exchange and Yahoo Finance in CSV format. The visualizations include Candlestick, area Line, and Comparison line charts.
+              </p>
+              <p>
+                Each visualisation serves to answer the following research questions:
+              </p>
+              <li>
+                <code>
+                  Q1 - Analyze performances of stock prices over time. Are there any detectable trends?
+                </code>
+              </li>
+              <li>
+                <code>
+                  Q2 - Analyze the possible price movement based on past patterns? 
+                </code>
+              </li>
+              <li>
+                <code>
+                  Q3 - How do the stocks of companies compare to each other over a given period?
+                </code>
+              <li>
+                <code>
+                  Q4 - How do macroeconomic indicators influence stock prices within the Dow Jones Industrial Average? 
+                </code>
+              <p class="my-3">
+                Providing data for this research question - there are four
+                visualistions in total clickcable under the left-side navbar:
+              </p>
+              <li>Q2 - A CandleStick Chart - A candlestick chart is essential for researching topic Q2 as it displays historical price patterns, such as support/resistance levels or head-and-shoulders patterns, and visualises the (Open, High, Low, Close) data for DJIA stocks. Through the identification of these patterns, analysts are able to assess prospective future price movements, providing valuable insights into probable trends based on past behaviour.</li>
+              <li>Q1 - A Area Line Chart - A stock's area line chart facilitates the analysis of research question Q1 by presenting a distinct graphical representation of the stock's long-term performance patterns. It illuminates past changes in pricing, allowing analysts to detect similar trends or irregularities over time. </li>
+              <li>Q3 - Comparison line Chart - A two-line comparative chart effectively addresses research question Q3 by directly contrasting the stock performance of two companies within a specific timeframe. This visualisation displays the relative patterns, similarities, or differences in the changes of prices, allowing for the straightforward identification of comparative advantages or disadvantages.</li>
+              <li>Q4 - A Area Line Chart - A line chart depicting macroeconomic data is used to investigate research question Q4. This chart displays economic variables such as GDP growth, unemployment rate, and interest rates, alongside stock values. This visualisation demonstrates the correlation between macroeconomic developments and stock movements, illustrating the impact of broader economic shifts on the Dow Jones Industrial Average.</li>
+            </section>
+            <section id="Key_Information">
+              <h2 class="text-light bg-primary my-3">Key Information</h2>
+              <p>
+                Development of the visualizations was multi-faceted,
+                incorporating the following technologies and features:
+              </p>
+              <ul>
+                <li>HTML and JavaScript for structure and functionality</li>
+                <li>
+                  D3.js v.7 for dynamic data visualization, available at
+                  <a href="https://d3js.org">https://d3js.org</a>
+                </li>
+                <li>
+                  Interactive elements such as responsiveness on hover and zoom
+                </li>
+                <li>Custom CSS for improved user experience</li>
+              </ul>
+            </section>
+
+            <section id="About_the_data">
+              <h2 class="text-light bg-primary my-3">About the data</h2>
+              <p class="text-justify">
+                The financial dataset offers complimentary end-of-day data for all equities presently included in the Dow Jones Industrial Average. There is a CSV file named after each of the 30 components of the index, with the file's name being the symbol of the corresponding stock (e.g. AAPL for Apple). Each file contains market-wide data that has been modified for historical purposes. The data is available on a daily basis and covers a maximum period of 5 years. The date information is maintained in the data folder of the project. The data is organised into columns which include the following information: Date, Open, High, Low, Close, Change, Change %, and Volume.Additional macroeconomic data encompassing significant variables such as GDP, interest rate, and unemployment rate from the identical time period as the Dow Jones stock data (2014 to 2019). The data is obtained from the Federal Reserve Economic Data (FRED) and is placed in the project's macro data folder as a CSV file.
+
+              </p>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="javascript/script.js"></script>
+  </body>
+</html>
