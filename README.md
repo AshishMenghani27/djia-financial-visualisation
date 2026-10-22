@@ -22,6 +22,8 @@ This project engineers an interactive, multi-chart financial data visualisation 
 
 The application is built entirely with **vanilla JavaScript + D3.js v7 + Bootstrap 5.3.3**, demonstrating proficiency in the core DOM manipulation, SVG rendering, and data binding patterns that underpin modern data visualisation frameworks. All chart interactivity — crosshairs, hover tooltips, dual-series synchronisation, and dynamic OHLCV readouts is implemented from first principles without charting library abstractions.
 
+Built for the King's College London module Introduction to Data Visualisation (2023).
+
 **Research questions addressed:**
 
 | Chart | Research Question |
