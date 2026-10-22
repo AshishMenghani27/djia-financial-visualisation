@@ -8,7 +8,7 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-**Browser-based interactive financial analytics dashboard — 4 chart types covering 30 DJIA stocks (2014–2019) with FRED macroeconomic overlays. Hand-coded in pure D3.js v7, zero framework dependencies.**
+**Browser-based interactive financial analytics dashboard — 4 chart types covering 30 DJIA stocks (2014–2019), plus a separate FRED macroeconomic chart. Hand-coded in D3.js v7 with no charting library or build tooling.**
 
 [Live Demo](#-live-demo) · [Chart Types](#-chart-types) · [Dataset](#-dataset) · [How to Run](#-how-to-run)
 
@@ -18,7 +18,7 @@
 
 ## Overview
 
-This project engineers an interactive, multi-chart financial data visualisation system using **D3.js v7** to answer four analytical research questions about Dow Jones Industrial Average (DJIA) constituent stocks. Each of the four visualisations addresses a distinct question from intraday price structure to macroeconomic correlation and is implemented as a self-contained, browser-renderable HTML page with no build tooling, no Node.js, and no server required.
+This project engineers an interactive, multi-chart financial data visualisation system using **D3.js v7** to answer four analytical research questions about Dow Jones Industrial Average (DJIA) constituent stocks. Each of the four visualisations addresses a distinct question, from daily price structure to macroeconomic context, and is implemented as a self-contained, browser-renderable HTML page with no build tooling, no Node.js, and no server required.
 
 The application is built entirely with **vanilla JavaScript + D3.js v7 + Bootstrap 5.3.3**, demonstrating proficiency in the core DOM manipulation, SVG rendering, and data binding patterns that underpin modern data visualisation frameworks. All chart interactivity — crosshairs, hover tooltips, dual-series synchronisation, and dynamic OHLCV readouts is implemented from first principles without charting library abstractions.
 
@@ -126,7 +126,7 @@ An area line chart rendering FRED macroeconomic time series data. Users select f
 | Indicator | Frequency | Date Range | Range |
 |---|---|---|---|
 | GDP (Nominal, $B) | Quarterly | 2014-Q1 → 2019-Q1 | $17,198B → $21,104B |
-| Short-term Interest Rate (%) | Monthly | Feb 2014 → Mar 2019 | 0.51% → 1.07% |
+| Interest Rate (%) | Monthly | Feb 2014 → Mar 2019 | 0.51% → 1.07% |
 | Unemployment Rate (%) | Monthly | Feb 2014 → Mar 2019 | 3.8% → 6.7% |
 
 **Source:** [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/) — public domain.
@@ -145,13 +145,13 @@ An area line chart rendering FRED macroeconomic time series data. Users select f
 Observations surfaced by interacting with the four charts:
 
 **Price trends (Chart 1 + 2):**
-- Boeing (BA) exhibited the strongest absolute price growth: from ~$120 in Feb 2014 to a peak of $421.55 — a 3.5× return over 5 years
+- Boeing (BA) exhibited the strongest absolute price growth: from $112.89 in Feb 2014 to a peak of $421.55, a 3.73× price increase over 5 years
 - Apple (AAPL) reached a peak close of $230.28 before a sharp Q4 2018 correction visible in both candlestick and area line views
 - Goldman Sachs (GS) and UnitedHealth (UNH) show the clearest bull-market staircase pattern on the candlestick chart
 - Coca-Cola (KO) shows the flattest price trajectory — consistent with its defensive equity profile
 
 **Cross-stock comparison (Chart 3):**
-- Tech stocks (AAPL, MSFT) consistently diverge upward from industrials (XOM, IBM) from 2017 onward — the technology rotation visible in raw price terms
+- AAPL and MSFT diverge upward from XOM and IBM from 2017 onward in raw price terms
 - DWDP (DowDuPont merger) only has data from September 2017; selecting it against a full-history stock highlights the merger formation date as a structural breakpoint
 
 **Macroeconomic context (Chart 4):**
@@ -253,7 +253,7 @@ djia-financial-visualisation/
 │   └── XOM.csv                      # ExxonMobil
 ├── Macro data/
 │   ├── GDP.csv                      # Quarterly GDP 2014-Q1 → 2019-Q1 (FRED, public domain)
-│   ├── 10-Year Interest Rate.csv    # Monthly short-term rate Feb 2014 → Mar 2019
+│   ├── 10-Year Interest Rate.csv    # Monthly interest-rate series, Feb 2014 → Mar 2019 (FRED)
 │   └── Unemployment Rate.csv        # Monthly unemployment Feb 2014 → Mar 2019
 ├── scripts/
 │   └── fetch_djia_data.py           # yfinance script to refresh DJIA stock data
@@ -325,7 +325,7 @@ The script downloads all 30 DJIA tickers from Yahoo Finance and saves them to `D
 `scaleTime` would introduce visual gaps for weekends and market holidays — the x-axis would have blank space where no trading occurred. `scaleBand` treats each trading day as an equal-width discrete band, which is the industry-standard rendering for candlestick charts.
 
 **Why `scaleLog` for the candlestick y-axis?**  
-Logarithmic scale correctly represents percentage returns — a $10 move from $100 (10%) occupies the same vertical space as a $10 move from $100 being visually equivalent to a $100 move from $1000. This is standard practice for multi-year financial charts.
+A logarithmic scale correctly represents percentage returns — a move from $100 to $110 (10%) occupies the same vertical space as a move from $1,000 to $1,100 (also 10%). This is standard practice for multi-year financial charts.
 
 **Why no charting library (Chart.js, Plotly, Highcharts)?**  
 Using D3.js v7 directly demonstrates understanding of SVG data binding, scale construction, and event-driven interactivity at the primitive level — skills directly transferable to custom visualisation engineering roles. Libraries abstract this complexity away; this implementation exposes it deliberately.
