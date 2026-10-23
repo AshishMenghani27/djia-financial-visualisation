@@ -121,7 +121,7 @@ A dual-series line chart that loads two user-selected DJIA stocks simultaneously
 
 **File:** `html/LineChart2.html` | `javascript/linechart2.js`
 
-An area line chart rendering FRED macroeconomic time series data. Users select from three indicators via dropdown: GDP, short-term interest rates, or unemployment rate. The chart uses the same gradient-area architecture as Chart 2 but maps to the FRED CSV schema (`DATE`, `DATA` columns) — making it reusable for any future FRED indicator.
+An area line chart rendering FRED macroeconomic time series data. Users select from three indicators via a dropdown: GDP, an interest-rate series, or the unemployment rate. The chart uses the same gradient-area architecture as Chart 2 but maps to the FRED CSV schema (`DATE`, `DATA` columns) — making it reusable for any future FRED indicator.
 
 **FRED indicators included:**
 
@@ -159,7 +159,6 @@ Observations surfaced by interacting with the four charts:
 **Macroeconomic context (Chart 4):**
 - GDP grew continuously from $17.2T to $21.1T across the period — a 22.7% expansion
 - Unemployment fell from 6.7% in Feb 2014 to 3.8% by early 2019 — a 2.9 percentage point decline consistent with the post-2008 recovery
-- Short-term interest rates rose from 0.51% to 1.07% across the period, reflecting gradual Fed tightening
 
 ---
 
